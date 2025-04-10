@@ -1,45 +1,39 @@
-# The Shard Programming Language
+# Compiled programming language
 
-*Version 0.0.1*
+*Version 0.0.2*
 
-Shard is a very small programming language in active development. It uses the C programming language and Flex & Bison.
+Shard is a very small programming language in active development. It uses Python and PLY to generate C code.
 
-## Installation
-*The automatic installation support is only available on Linux-based systems.*
-
-**Step 1**: clone this repository
-```bash
-git clone https://github.com/sharp-lang/sharp
-```
-
-**Step 2**: build the language
-```bash
-cd sharp
-chmod +x build.sh
-./build.sh
-```
-
-**Step 3**: complete the installation by running these commands as root
-```bash
-chmod +x install.sh
-./install.sh
-```
-
-**Step 4**: create a program and run it!
-```
-59 + 12 * (-4 / 2);
-```
-```bash
-sharp my_program.shd
-```
+## Last changes
+- Division by zero handling
+- C code generation
+- Float numbers support
 
 ## Features
-Sharp...
-- Handles different arithmetic operators: + - * and /
-- Handles different arithmetic symbols: ( and )
-- Handles negative expressions: -5
-- Handles explicit positive expressions: +49
-- Handles programs with several instructions: 1 + 1; 4* 2; 3 - 4;
+- Arithmetic operations
+
+## Running
+Create your Shard program and type the following command:
+
+```bash
+python3 path/to/shard.py -c your_program.shd    # you can use --compile instead of -c
+```
+
+## Preview
+**Shard program**
+```
+3 * 5;
+8 + (9 - 2);
+```
+
+**Generated C code**
+```c
+int main() {
+  (3 * 5);
+  (8 + ((9 - 2)));
+   return 0;
+}
+```
 
 ## Contribution
 To see how to contribute to the project, check out [the contributing guide](CONTRIBUTING.md)!
