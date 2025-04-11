@@ -1,5 +1,6 @@
 import tree
 import sys
+import const
 
 class Environment:
     def __init__(self):
@@ -60,6 +61,20 @@ class Environment:
                 print(f"ERROR: cannot access to undeclared variable '{node.name}'")
                 sys.exit(1)
             value = self.evaluate(node.value)
+
+            if self.variables[node.name] == "byte" and value > const.BYTE_MAX_VAL:
+                print(f"ERROR: data type 'byte' is not appropriated for value {value}")
+                sys.exit(1)
+            elif self.variables[node.name] == "word" and value > const.WORD_MAX_VAL:
+                print(f"ERROR: data type 'word' is not appropriated for value {value}")
+                sys.exit(1)
+            elif self.variables[node.name] in ["dword", "float"] and value > const.DWORD_MAX_VAL:
+                print(f"ERROR: data type 'dword' is not appropriated for value {value}")
+                sys.exit(1)
+            elif self.variables[node.name] in ["qword", "double"] and value > const.QWORD_MAX_VAL:
+                print(f"ERROR: data type 'qword' is not appropriated for value {value}")
+                sys.exit(1)
+
             if node.operator == '=': return f"{node.name} = ({value})"
             elif node.operator == '+=': return f"{node.name} += ({value})"
             elif node.operator == '-=': return f"{node.name} -= ({value})"

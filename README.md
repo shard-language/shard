@@ -1,15 +1,11 @@
 # Compiled programming language
 
-*Version 0.0.3*
+*Version 0.0.4*
 
 Shard is a small programming language in active development. It uses Python and PLY to generate C code.
 
 ## Last changes
-- Variables handling
-- Strong typing
-- Assignment operators
-- --version / -v flag
-- [Installation program](install.sh)
+- Data types limits handling
 
 ## Features
 - Arithmetic operations

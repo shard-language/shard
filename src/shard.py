@@ -4,7 +4,7 @@ from environment import Environment
 import os
 
 def main():
-    version = "0.0.3"
+    version = "0.0.4"
 
     argparser = argparse.ArgumentParser(description="The Shard programming language compiler")
 
